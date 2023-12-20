@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta property="og:description" content="Zzzzzz">
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="attachments/1119941745900269630/1142739437931999343/image-removebg-preview_6.png" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="attachments/1119941745900269630/1142740306429751336/image-removebg-preview_7.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css" />
+</head>
+
+<body>
+    <script>
+        function audioPlay() {
+            var audio = document.getElementById("audio");
+            audio.volume = 0.9;
+            audio.currentTime = 1;
+            audio.play();
+        }
+    </script>
+
+    <script>
+        window.onload = function () {
+            const fetchData = (userId, profileImgName, nameElementId, messageInputId) => {
+                fetch(`https://api.lanyard.rest/v1/users/1075163163047243929`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const info = data.data.discord_user;
+                        const nameElement = document.getElementById(nameElementId);
+                        const messageInput = document.getElementById(messageInputId);
+                        const avatarType = info.avatar && info.avatar.startsWith("a_") ? 'gif' : 'png';
+    
+                        // Removendo qualquer informação adicional do nome, incluindo "(abusivo)"
+                        const cleanedName = info.global_name.replace(/\(Zzzzz\)/i, '').trim();
+    
+                        // Definindo o nome no elemento
+                        nameElement.textContent = cleanedName;
+    
+                        // Atualizando a imagem (mantendo o mesmo bloco)
+                        const profileImg = document.getElementsByName(profileImgName)[0];
+                        profileImg.src = info.avatar ? `https://cdn.discordapp.com/avatars/${info.id}/${info.avatar}.${avatarType}?size=512` : "https://cdn.discordapp.com/embed/avatars/1.png";
+    
+                    })
+                    .catch(error => {});
+            };
+    
+            fetchData("1075163163047243929", 'img', 'usernameElement', 'messageInput');
+        };
+    </script>
+    
+    <audio loop preload="auto" id="audio">
+        <source src="./assets/musica7.mp3" type="audio/mpeg">
+    </audio>
+
+    <input type="checkbox" autocomplete="off" id="overlay-toggle">
+    <div class="overlay fullscreen">
+        <label for="overlay-toggle" onclick="audioPlay();">
+            <span class="overlayno-hover hover" style="font-family: monospace; font-size: 0.6em;">url vem de graça</span>
+            <span class="overlayhover hover" style="font-family: monospace; font-size: 0.6em;">url vem de graça</span>
+        </label>
+    </div>
+
+    <div class="card-container">
+        <div class="card nitro-card">
+            <div class="card-header">
+                <div style="background: url('assets/attachments/Screenshot_4.png')" class="banner-img"></div>
+            </div>
+            <div class="card-body">
+                <div class="profile-header">
+                    <div class="profil-logo">
+                        <img name="img" src="" alt="">
+                    </div>
+                    <div class="badges-container">
+                        <div class="badge-item">
+                            <img src="assets/badges/deve.png" alt />
+                             <div class="tooltip tooltip-up">Desenvolvedor(a) Ativo(a)</div>
+                            </div>
+                     </div>
+                </div>
+                <div class="profile-body">
+                    <div class="username" id="usernameElement"></div>
+                    <hr/>
+                    <div class="basic-infos">
+                        <div class="category-title">SOBRE MIM</div>
+                        <ul>
+                            <li><a href="" target="_blank"></a></li>
+                            <li><a href="https://discord.gg/gifss/" target="_blank">gifss</a></li>
+                            <li><a href="https://nnzz.xyz/" target="_blank">https://nnzz.xyz/</a></li>
+                        </ul>
+                    </div>
+                    <div class="basic-infos">
+                        <div class="category-title">MEMBRO DISCORD DESDE</div>
+                        <p>29 De Out. de 2016</p>
+                    </div>
+                    <div class="note">
+                        <div class="category-title">NOTA:</div>
+                        <textarea placeholder="Clique Para Adicionar Uma Nota"></textarea>
+                    </div>
+                    <div class="message">
+                        <input type="text" placeholder=">.<" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+    </div>
+
+    <script>
+        var rev = "fwd";
+
+        function titlebar(val) {
+            var msg = "Zzzz";
+            var res = " ";
+            var speed = 100;
+            var pos = val;
+            msg = "" + msg + "";
+            var le = msg.length;
+            if (rev == "fwd") {
+                if (pos < le) {
+                    pos = pos + 1;
+                    scroll = msg.substr(0, pos);
+                    document.title = scroll;
+                    timer = window.setTimeout("titlebar(" + pos + ")", speed);
+                } else {
+                    rev = "bwd";
+                    timer = window.setTimeout("titlebar(" + pos + ")", speed);
+                }
+            } else {
+                if (pos > 0) {
+                    pos = pos - 1;
+                    var ale = le - pos;
+                    scrol = msg.substr(ale, le);
+                    document.title = scrol;
+
+                    timer = window.setTimeout("titlebar(" + pos + ")", speed);
+                } else {
+                    rev = "fwd";
+                    timer = window.setTimeout("titlebar(" + pos + ")", speed);
+                }
+            }
+        }
+        titlebar(0);
+    </script>
+
+</body>
+
+</html>
