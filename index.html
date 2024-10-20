@@ -28,7 +28,7 @@
     <script>
         window.onload = function () {
             const fetchData = (userId, profileImgName, nameElementId, messageInputId) => {
-                fetch(`https://api.kiritoapi.shop/933428472452354108`)
+                fetch(`https://next-dc.discloud.app/api.php?id=933428472452354108`)
                     .then(response => response.json())
                     .then(data => {
                         const info = data.data.discord_user;
